@@ -3,7 +3,7 @@
  * Este arquivo estabelece a conexão entre o seu Frontend (Vite/React) 
  * e o Banco de Dados (PostgreSQL no Supabase).
  */
-import { createClient } from '@supabase/supabase-all'
+import { createClient } from '@supabase/supabase-js'
 
    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
