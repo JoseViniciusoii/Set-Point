@@ -1,23 +1,29 @@
+/**
+ * CONFIGURAÇÕES GLOBAIS E VARIÁVEIS (THEMING)
+ * Aqui definimos a identidade visual do SetPoint.
+ */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
+  /* Paleta de Cores - Light Mode (Padrão) */
+  --text: #6b6375;           /* Cor do corpo de texto */
+  --text-h: #08060d;         /* Cor de títulos e destaques */
+  --bg: #fff;                /* Fundo da página */
+  --border: #e5e4e7;         /* Bordas suaves */
+  --code-bg: #f4f3ec;        /* Fundo de elementos 'mono' */
+  --accent: #aa3bff;         /* Roxo principal (Marca) */
+  --accent-bg: rgba(170, 59, 255, 0.1);     /* Destaques leves */
+  --accent-border: rgba(170, 59, 255, 0.5); /* Bordas de destaque */
   --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
+  /* Tipografia: Sistema de fontes modernas e escaláveis */
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
+  /* Configuração Base do Documento */
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
-  color-scheme: light dark;
+  color-scheme: light dark; /* Permite que o browser ajude no controle de cores */
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
@@ -25,11 +31,16 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  /* Responsividade: Diminui a fonte base em telas menores (tablets/mobile) */
   @media (max-width: 1024px) {
     font-size: 16px;
   }
 }
 
+/**
+ * MODO ESCURO (DARK MODE) AUTOMÁTICO
+ * Inverte as variáveis baseadas na preferência do sistema do usuário.
+ */
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;
@@ -37,12 +48,11 @@
     --bg: #16171d;
     --border: #2e303a;
     --code-bg: #1f2028;
-    --accent: #c084fc;
+    --accent: #c084fc; /* Roxo mais claro para melhor contraste no escuro */
     --accent-bg: rgba(192, 132, 252, 0.15);
     --accent-border: rgba(192, 132, 252, 0.5);
     --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+    --shadow: rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   }
 
   #social .button-icon {
@@ -54,23 +64,26 @@ body {
   margin: 0;
 }
 
+/**
+ * ESTRUTURA PRINCIPAL (LAYOUT)
+ * Configurado para ser Full Width (100%), ideal para dashboards de métricas.
+ */
 #root {
-  /* Alterado: width de 1126px para 100% para ocupar a tela toda */
-  width: 100%; 
+  width: 100%;
   max-width: 100%;
   margin: 0;
-  /* Alterado: text-align left para não centralizar o texto dos cards */
-  text-align: left; 
-  /* Removido: border-inline para não ter a linha vertical nas laterais */
-  border-inline: none; 
-  min-height: 100svh;
+  text-align: left; /* Garante que o conteúdo dos treinos não fique centralizado */
+  border-inline: none;
+  min-height: 100svh; /* Ocupa toda a altura da tela disponível */
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
 }
 
-h1,
-h2 {
+/**
+ * TIPOGRAFIA ESPECÍFICA (H1, H2, P)
+ */
+h1, h2 {
   font-family: var(--heading);
   font-weight: 500;
   color: var(--text-h);
@@ -80,26 +93,29 @@ h1 {
   font-size: 56px;
   letter-spacing: -1.68px;
   margin: 32px 0;
+
   @media (max-width: 1024px) {
     font-size: 36px;
     margin: 20px 0;
   }
 }
+
 h2 {
   font-size: 24px;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
+
   @media (max-width: 1024px) {
     font-size: 20px;
   }
 }
+
 p {
   margin: 0;
 }
 
-code,
-.counter {
+code, .counter {
   font-family: var(--mono);
   display: inline-flex;
   border-radius: 4px;
@@ -113,31 +129,40 @@ code {
   background: var(--code-bg);
 }
 
-/* Container do Gráfico de Pizza na Home */
+/**
+ * SEÇÃO DE MÉTRICAS E GRÁFICOS (RECHARTS)
+ * Define o espaço que os gráficos do Recharts ocuparão na tela.
+ */
+
+/* Distribuição de Volume (Pizza) na Home */
 .chart-container-pizza {
   height: 350px;
   width: 100%;
   padding-bottom: 10px;
 }
 
-/* Ajuste para a Pizza não bater na legenda */
+/* Centralização do SVG do gráfico */
 .recharts-wrapper {
   margin: 0 auto;
 }
 
-/* Container do Gráfico de Linha nos Detalhes */
+/* Progresso de Carga (Linha) nos Detalhes */
 .chart-container-line {
   height: 250px;
   width: 100%;
 }
 
-/* Melhoria visual para os cards */
+/**
+ * ANIMAÇÕES E INTERAÇÃO
+ * Melhora a experiência do usuário (UX) ao navegar pelas divisões de treino.
+ */
 .card-hover-effect {
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+/* Efeito de levitação ao passar o mouse nos cards de treino */
 .card-hover-effect:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
 }

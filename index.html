@@ -1,14 +1,30 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230d6efd'><path d='M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z'/></svg>">
-    <title>Set Point</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- Garante que o app se ajuste perfeitamente à tela do celular (essencial para usar na academia) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Ícones do Bootstrap: Usados nos botões de editar, excluir e no raio do cronômetro -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Ícone da aba do navegador (Favicon): Um raio estilizado em SVG -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230d6efd'><path d='M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z'/></svg>">
+  
+  <!-- SweetAlert2: Biblioteca que gera aqueles alertas bonitos de confirmação de exclusão -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <title>Set Point</title>
+</head>
+
+<body>
+  <!-- Aqui o react desenha toda a interface do seu sistema -->
+  <div id="root"></div>
+  
+  <!-- O ponto de partida do código JavaScript -->
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
